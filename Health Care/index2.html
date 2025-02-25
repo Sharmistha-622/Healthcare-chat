@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <div id="chatbot-ui" class="container">
+        <h1>Welcome to the Mental Health Chatbot</h1>
+        <p>Your personal assistant for mental well-being</p>
+        <button onclick="showSection('login-page')">Get Started</button>
+    </div>
+
+    <div id="login-page" class="container hidden">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter your name" required>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+        <button onclick="validateLogin()">Login</button>
+    </div>
+    
+
+    <div id="mood-tracker" class="container hidden">
+        <h2>How are you feeling today?</h2>
+        <div class="mood-buttons">
+            <button class="mood-btn happy" onclick="setMood('happy')">😊 Happy</button>
+            <button class="mood-btn sad" onclick="setMood('sad')">😞 Sad</button>
+            <button class="mood-btn anxious" onclick="setMood('anxious')">😰 Anxious</button>
+            <button class="mood-btn depressed" onclick="setMood('depressed')">😢 Depressed</button>
+        </div>
+        <button id="next-button" onclick="goToNextSection()" disabled>Next</button>
+    </div>
+    
+
+    <div id="remedies" class="container hidden">
+        <h2>Helpful Resources</h2>
+        <p id="remedy-content"></p>
+        <button onclick="showSection('chatbot')">Next</button>
+    </div>
+
+    <div id="chatbot" class="container hidden">
+        <h2>Chatbot</h2>
+        <div id="chat-window"></div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="showSection('thoughtful-notes')">Next</button>
+    </div>
+    
+    <div id="thoughtful-notes" class="container hidden">
+        <h2>Thoughtful Notes</h2>
+        <p>Remember, you are not alone. Life is precious, and every challenge can be overcome.</p>
+        <button onclick="showSection('stress-relief-games')">Next</button>
+    </div>
+
+    <div id="stress-relief-games" class="container">
+        <h2>Mind Stress Relief Activities</h2>
+        
+        <ul>
+            <li><a href="https://www.jigsawplanet.com/" target="_blank">🧩 Play Puzzle Game</a></li>
+            <li><a href="https://poki.com/en/g/color-artist" target="_blank">🎨 Online Coloring</a></li>
+            <li><a href=" https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO?creation_point=https%3A%2F%2Fopen.spotify.com%2Fplaylist%2F37i9dQZF1DX4sWSpwq3LiO%3Fsp_cid%3D2f745cd2d71e6221d747c0c564ecd4f1%26device%3Ddesktop#login%3Fflow_ctx=75e39c75-e3e2-400e-8e97-9970dca6b690%3A1740249953" target="_blank">🎵 Listen to Relaxing Music</a></li>
+            <li><a href="https://mynoise.net/" target="_blank">🌿 Listen to Nature Sounds</a></li>
+            <li><a href="https://www.calm.com/breathe" target="_blank">🌬️ Try Breathing Exercise</a></li>
+        </ul>
+    
+        <button onclick="showSection('audio-record')">Next</button>
+    </div>
+    
+    
+    
+
+    <div id="audio-record" class="container">
+        <h2>Voice Recording for Consultation</h2>
+        <button id="start-recording">🎤 Start Recording</button>
+        <button id="stop-recording" disabled>⏹️ Stop Recording</button>
+        <br><br>
+        <audio id="audio-player" controls style="display: none;"></audio>
+        <br>
+        <a id="download-link" style="display: none;">⬇️ Download Recording</a>
+        
+        
+        
+        <br><br>
+        <button onclick="showSection('therapy-session')">Next</button>
+    </div>
+    
+
+
+
+    <div id="therapy-session" class="container hidden">
+        <h2>Therapy Sessions</h2>
+        
+        <p>Select a session to explore helpful content:</p>
+    
+        <ul>
+            <li><a href="#" onclick="loadSession('guided-meditation', event)">🧘 Guided Meditation</a></li>
+            <li><a href="#" onclick="loadSession('breathing-exercises', event)">🌬️ Breathing Exercises</a></li>
+            <li><a href="#" onclick="loadSession('stress-management', event)">💆 Stress Management Tips</a></li>
+            <li><a href="#" onclick="loadSession('online-consultation', event)">💬 Talk to a Therapist</a></li>
+        </ul>
+        
+    
+        <div id="session-content"></div>
+    
+        <button onclick="showSection('chatbot-ui')">Back to Home</button>
+    </div>
+    
+
+    <script src="script2.js"></script>
+</body>
+</html>
